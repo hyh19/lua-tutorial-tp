@@ -8,4 +8,6 @@ cd lua-5.2.3
 
 sudo make linux install
 
+cd ..
+
 rm -rf lua-5.2.3*
