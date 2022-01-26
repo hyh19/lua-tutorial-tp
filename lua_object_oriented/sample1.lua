@@ -15,4 +15,5 @@ function Rectangle:printArea()
 end
 
 r = Rectangle:new(nil, 10, 20)
-print(r.length)
+print(r.length) --> 10
+r:printArea() --> The area of Rectangle is        200
