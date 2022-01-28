@@ -14,3 +14,9 @@ end
 for i, n in squares(3) do
     print(i, n)
 end
+
+--[[
+1       1
+2       4
+3       9
+]]
