@@ -4,9 +4,9 @@ function Rectangle:new(o, length, breadth)
     o = o or {}
     setmetatable(o, self)
     self.__index = self
-    self.length = length or 0
-    self.breadth = breadth or 0
-    self.area = length * breadth
+    o.length = length or 0
+    o.breadth = breadth or 0
+    o.area = length * breadth
     return o
 end
 

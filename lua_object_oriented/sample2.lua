@@ -1,4 +1,4 @@
--- Meta class
+-- Base class
 Shape = {area = 0}
 
 -- Base class method new
@@ -7,7 +7,7 @@ function Shape:new(o, side)
     setmetatable(o, self)
     self.__index = self
     side = side or 0
-    self.area = side * side
+    o.area = side * side
     return o
 end
 
@@ -18,7 +18,7 @@ end
 
 -- Creating an object
 myshape = Shape:new(nil, 10)
-myshape:printArea()
+myshape:printArea() --> The area is     100
 
 Square = Shape:new()
 
@@ -37,7 +37,7 @@ end
 
 -- Creating an object
 mysquare = Square:new(nil, 10)
-mysquare:printArea()
+mysquare:printArea() --> The area of square is   100
 
 Rectangle = Shape:new()
 
@@ -46,7 +46,7 @@ function Rectangle:new(o, length, breadth)
     o = o or Shape:new(o)
     setmetatable(o, self)
     self.__index = self
-    self.area = length * breadth
+    o.area = length * breadth
     return o
 end
 
@@ -57,4 +57,4 @@ end
 
 -- Creating an object
 myrectangle = Rectangle:new(nil, 10, 20)
-myrectangle:printArea()
+myrectangle:printArea() --> The area of Rectangle is        200
