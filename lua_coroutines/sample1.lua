@@ -15,18 +15,17 @@ co =
     end
 )
 
-print("main (1)", coroutine.resume(co, 3, 2))
-print("main (2)", coroutine.resume(co, 12, 14))
-print("main (3)", coroutine.resume(co, 5, 6))
-print("main (4)", coroutine.resume(co, 10, 20))
+print("main 1", coroutine.resume(co, 3, 2))
+print("main 2", coroutine.resume(co, 12, 14))
+print("main 3", coroutine.resume(co, 5, 6))
+print("main 4", coroutine.resume(co, 10, 20))
 
 --[[
-$ lua sample1.lua
 coroutine section 1:    3       2       10
-main (1)        true    4       3
+main 1  true    4       3
 coroutine section 2:    12      nil     13
-main (2)        true    5       1
+main 2  true    5       1
 coroutine section 3:    5       6       16
-main (3)        true    2       end
-main (4)        false   cannot resume dead coroutine
+main 3  true    2       end
+main 4  false   cannot resume dead coroutine
 ]]
