@@ -34,7 +34,6 @@ for index = 1, 10 do
 end
 
 --[[
-$ lua sample2.lua
 1       1
 2       2
 3       3
