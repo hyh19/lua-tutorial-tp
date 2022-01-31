@@ -4,10 +4,12 @@ co =
         local tempvar3 = 10
         print("coroutine section 1:", value1, value2, tempvar3)
 
+        -- 下次 resume 的参数赋值给 tempvar1
         local tempvar1 = coroutine.yield(value1 + 1, value2 + 1)
         tempvar3 = tempvar3 + value1
         print("coroutine section 2:", tempvar1, tempvar2, tempvar3)
 
+        -- 下次 resume 的参数赋值给 tempvar1 tempvar2
         local tempvar1, tempvar2 = coroutine.yield(value1 + value2, value1 - value2)
         tempvar3 = tempvar3 + value1
         print("coroutine section 3:", tempvar1, tempvar2, tempvar3)
@@ -15,17 +17,17 @@ co =
     end
 )
 
-print("main 1", coroutine.resume(co, 3, 2))
-print("main 2", coroutine.resume(co, 12, 14))
-print("main 3", coroutine.resume(co, 5, 6))
-print("main 4", coroutine.resume(co, 10, 20))
+print("main 1:", coroutine.resume(co, 3, 2)) -- yield 的参数作为 resume 的返回值
+print("main 2:", coroutine.resume(co, 12, 14))
+print("main 3:", coroutine.resume(co, 5, 6))
+print("main 4:", coroutine.resume(co, 10, 20))
 
 --[[
 coroutine section 1:    3       2       10
-main 1  true    4       3
+main 1: true    4       3
 coroutine section 2:    12      nil     13
-main 2  true    5       1
+main 2: true    5       1
 coroutine section 3:    5       6       16
-main 3  true    2       end
-main 4  false   cannot resume dead coroutine
+main 3: true    2       end
+main 4: false   cannot resume dead coroutine
 ]]
